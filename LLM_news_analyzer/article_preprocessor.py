@@ -52,3 +52,7 @@ class ArticlePreprocessor:
         return ""  # Return an empty string if any error occurs
 
 
+if __name__=="__main__":
+    preprocessor = ArticlePreprocessor()
+    url = "https://www.abc.net.au/news/2024-11-28/melbourne-tram-network-is-largely-inaccessible/104634896"
+    print(preprocessor.preprocess(url))

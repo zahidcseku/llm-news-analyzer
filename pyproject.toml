@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "news-classifier"
+name = "LLM_news_analyzer"
 version = "0.1.0"
 description = "A LLM based news article analysis tool."
 authors = ["Md Zahidul Islam <zahidcseku@gmail.com>"]
@@ -8,6 +8,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+pytest = "^8.3.3"
+bs4 = "^0.0.2"
+requests = "^2.32.3"
 
 
 [build-system]
