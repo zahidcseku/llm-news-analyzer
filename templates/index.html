@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article Insight Processor</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center text-2xl font-bold mb-6">Article Insight Processor</h1>
+        <form method="post">
+            <textarea 
+                name="urls" 
+                class="input-area" 
+                placeholder="Paste article URLs here (one per line)"></textarea>
+            <div class="flex justify-center mt-4">
+                <button type="submit" class="submit-btn">
+                    Process Articles
+                </button>
+            </div>
+        </form>
+        {% if error %}
+        <div class="text-red-500 text-center mt-4">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

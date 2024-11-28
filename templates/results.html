@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article Processing Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center text-2xl font-bold mb-6">Article Insights</h1>
+        {% for result in results %}
+        <div class="result-card">
+            <h3 class="font-semibold mb-2">{{ result.url }}</h3>
+            <div class="mb-2">
+                <strong>Categories:</strong>
+                {% for category in result.categories %}
+                <span class="category-badge">{{ category }}</span>
+                {% endfor %}
+            </div>
+            <div>
+                <strong>Summary:</strong>
+                <p>{{ result.summary }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="text-center mt-4">
+            <a href="/" class="submit-btn inline-block">Process More Articles</a>
+        </div>
+    </div>
+</body>
+</html>
