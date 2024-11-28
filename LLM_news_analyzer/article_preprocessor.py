@@ -1,8 +1,6 @@
 import requests
-from bs4 import BeautifulSoup
-from langchain.llms import OpenAI
-from langchain.chains import LLMChain
-from langchain.prompts import PromptTemplate
+from bs4 import BeautifulSoup, FeatureNotFound
+import logging
 
 
 class ArticlePreprocessor:
@@ -18,6 +16,8 @@ class ArticlePreprocessor:
     Methods:
         preprocess(url): Fetches and processes the content from a given URL.
     """
+    def __init__(self):
+        self.logger = logging.getLogger(__name__)
     
     def preprocess(self, url):
         """
@@ -37,8 +37,18 @@ class ArticlePreprocessor:
             requests.RequestException: If there's an error in fetching the web page.
             bs4.FeatureNotFound: If the HTML parser is not found.
         """
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        return ' '.join([p.text for p in soup.find_all('p')])
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()  # Raises an HTTPError for bad responses
+            soup = BeautifulSoup(response.text, 'html.parser')
+            return ' '.join([p.text for p in soup.find_all('p')])
+        except requests.RequestException as e:
+            self.logger.error(f"Error fetching URL {url}: {str(e)}")
+        except FeatureNotFound as e:
+            self.logger.error(f"HTML parser not found: {str(e)}")
+        except Exception as e:
+            self.logger.error(f"Unexpected error processing {url}: {str(e)}")
+        
+        return ""  # Return an empty string if any error occurs
 
 
