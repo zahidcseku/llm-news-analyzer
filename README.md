@@ -24,6 +24,7 @@ A web application built with FastAPI leveraging Large Language Models (LLMs) to 
 - **Cyclic**: A cloud platform for deploying web applications.
 - **poetry**: package management.
 
+
 ## Installation
 
 ### Prerequisites
@@ -33,5 +34,5 @@ Make sure you have Python 3.7 or higher installed on your machine. You also need
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/article-insight-pro.git
-cd article-insight-pro
+git clone https://github.com/zahidcseku/llm-news-analyzer.git
+cd llm-news-analyzer
