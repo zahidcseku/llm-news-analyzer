@@ -32,7 +32,7 @@ class ArticleSummarizer:
             raise Exception(f"Failed to initialize the model: {e}")
         
 
-    def summarize(self, text):
+    def summarize(self, text, max_words=50):
         """
         Summarizes the given text.
 
@@ -49,7 +49,7 @@ class ArticleSummarizer:
         if not text or not text.strip():
             raise ValueError("Input text cannot be empty or whitespace.")
         
-        prompt = f"Please summarize the following text in no more than 50 words:\n\n{text}"
+        prompt = f"Please summarize the following text in no more than {max_words} words:\n\n{text}"
         
         try:
             response = self.model.generate_content(prompt)
