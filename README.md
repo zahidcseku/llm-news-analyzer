@@ -18,7 +18,7 @@ A web application built with FastAPI leveraging Large Language Models (LLMs) to 
 ## Technologies Used
 
 - **FastAPI**: A modern web framework for building APIs with Python.
-- **LangChain**: A framework for working with LLMs.
+- **google.generativeai**: A framework for working with LLMs.
 - **BeautifulSoup**: A library for parsing HTML and XML documents.
 - **Uvicorn**: An ASGI server for running FastAPI applications.
 - **Cyclic**: A cloud platform for deploying web applications.
