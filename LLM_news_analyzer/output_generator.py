@@ -1,8 +1,12 @@
+from LLM_news_analyzer.article_preprocessor import ArticlePreprocessor
+from LLM_news_analyzer.article_classifier import ArticleClassifier
+from LLM_news_analyzer.article_summarizer import ArticleSummarizer
+import json
 
-class ArticleProcessor:
-    def __init__(self):
+class OutputGenerator:
+    def __init__(self, categories):
         self.preprocessor = ArticlePreprocessor()
-        self.classifier = ArticleClassifier()
+        self.classifier = ArticleClassifier(categories)
         self.summarizer = ArticleSummarizer()
 
     def process(self, urls):
@@ -17,3 +21,12 @@ class ArticleProcessor:
                 "summary": summary
             })
         return json.dumps(results, indent=2)
+    
+
+
+if __name__ == "__main__":
+    categories = "politics, sports, finance, technology, entertainment, others"
+    preprocessor = OutputGenerator(categories)
+    url = "https://www.abc.net.au/news/2024-11-28/melbourne-tram-network-is-largely-inaccessible/104634896"
+        
+    print(preprocessor.process(urls=[url]))

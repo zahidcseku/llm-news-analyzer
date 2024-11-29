@@ -67,8 +67,7 @@ class ArticleClassifier:
             category = response.text.strip()
             
             # Define valid categories
-            valid_categories = self.categories.split(",")#{"politics", "sports", "finance", "technology", "entertainment", "others"}
-            print(valid_categories)
+            valid_categories = self.categories.split(",")
             
             # Check if the returned category is valid; if not, classify as 'others'
             if category.lower() in valid_categories:
