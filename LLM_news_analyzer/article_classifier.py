@@ -73,7 +73,7 @@ class ArticleClassifier:
             if category.lower() in valid_categories:
                 return category
             else:
-                return "Cant do it!!"
+                return "Sorry I cannot find it!!"
         
         except Exception as e:
             self.logger.error(f"Error generating content from model: {e}")

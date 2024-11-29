@@ -2,25 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Article Processing Results</title>
+    <title>Article processing results</title>
     <link rel="stylesheet" href="/static/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center text-2xl font-bold mb-6">Article Insights</h1>
+        <h1 class="text-center text-2xl font-bold mb-6">Article classification and summary</h1>
         {% for result in results %}
         <div class="result-card">
-            <h3 class="font-semibold mb-2">{{ result.url }}</h3>
+            <h3 class="font-semibold mb-2"><a href="{{ result.url }}">{{ result.url }} </a></h3>
             <div class="mb-2">
-                <strong>Categories:</strong>
-                {% for category in result.categories %}
-                <span class="category-badge">{{ category }}</span>
-                {% endfor %}
+                <strong>Categories:</strong>        
+                <span class="category-badge">{{ result.categories }}</span>
             </div>
-            <div>
-                <strong>Summary:</strong>
-                <p>{{ result.summary }}</p>
+            <div>                
+                <p><strong>Summary:</strong> {{ result.summary }}</p>
             </div>
         </div>
         {% endfor %}

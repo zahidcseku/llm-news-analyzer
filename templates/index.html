@@ -2,27 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Article Insight Processor</title>
-    <link rel="stylesheet" href="/static/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM-based News Article Analyzer</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class="container">
-        <h1 class="text-center text-2xl font-bold mb-6">Article Insight Processor</h1>
-        <form method="post">
-            <textarea 
-                name="urls" 
-                class="input-area" 
-                placeholder="Paste article URLs here (one per line)"></textarea>
-            <div class="flex justify-center mt-4">
+   
+    <main class="container">
+        <section id="home">
+            <h1 class="main-title">LLM-based News Article Processor</h1>
+            <p class="subtitle">Analyze multiple news articles with advanced AI technology</p>
+
+            <form method="post" class="article-form">
+                <div class="form-group">
+                    <label for="urls">Enter Article URLs:</label>
+                    <textarea 
+                        id="urls"
+                        name="urls" 
+                        class="input-area" 
+                        placeholder="Paste article URLs here (one per line)"
+                        rows="5"
+                    ></textarea>
+                </div>
                 <button type="submit" class="submit-btn">
-                    Process Articles
+                    <i class="fas fa-cogs"></i> Process Articles
                 </button>
+            </form>
+
+            {% if error %}
+            <div class="error-message">
+                <i class="fas fa-exclamation-circle"></i> {{ error }}
             </div>
-        </form>
-        {% if error %}
-        <div class="text-red-500 text-center mt-4">{{ error }}</div>
-        {% endif %}
-    </div>
+            {% endif %}
+        </section>
+
+        <section id="about" class="info-section">
+            <p>Our AI-powered tool analyzes news articles to provide insights on categories 
+                and key summaries. Perfect for researchers, journalists, and news enthusiasts.</p>
+            
+            <p>Check out our source code on 
+                    <a href="https://github.com/zahidcseku/llm-news-analyzer" target="_blank">GitHub</a>.
+                 </p>
+        </section>
+
+        <section id="features" class="info-section">
+            <h2>Key Features</h2>
+            <ul class="feature-list">
+                <li><i class="fas fa-check-circle"></i> Multi-article processing</li>
+                <li><i class="fas fa-check-circle"></i> AI-driven categorization</li>
+                <li><i class="fas fa-check-circle"></i> Concise summaries</li>
+                <li><i class="fas fa-check-circle"></i> Fast and accurate results</li>
+            </ul>
+        </section>
+    </main>
+
 </body>
 </html>
